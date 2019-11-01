@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="icomoon/style.css" rel="stylesheet">
+<style>
+@font-face {
+	font-family: "Proxima Nova Semi Bold", "Proxima Nova Bold", "Proxima Nova Reg", "Proxima Nova Extra Bold";
+}
+#activealert {
+	background-color: #F2938D;
+	height: 40px;
+	wdth: 100%;
+	margin: 0px;
+	padding: 45px 0px 45px 60px;
+}
+#activealert h1 {
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	margin: 0px 0px 0px 35px;
+	line-height: 48px;
+	font-size: 48px;
+	font-weight: 900;
+	text-align: middle;
+	padding: 0px 0px 0px 0px;
+}
+.alignleft {
+	float: left;
+}
+.regionhead {
+	padding: 0px 0px 10px 0px;
+	font-family: 'Proxima Nova Bold', Arial, sans-serif;
+	font-weight: 900;
+}
+.regionrow {
+	float: left;
+	width: 90px;
+	line-height: 30px;
+}
+.introalert {
+	float: left;
+	width: 43%;
+	font-size: 24px;
+	font-family: "Proxima Nova", Arial, sans-serif;
+	height: 130px;
+	padding: 30px 0px 60px 0px;
+	margin: 0px;
+}
+.intromap {
+	float: left;
+	width: 210px;
+	height: 180px;
+	padding: 20px;
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-size: 14px;
+}
+.introregion {
+	float: left;
+	width: 25%;
+	font-size: 20px;
+	font-family: "Proxima Nova", Arial, sans-serif;
+	padding: 40px 0px 0px 80px;
+	height: 180px;
+	width: 270px;
+}
+.missingchild {
+	clear: both;
+	float: left;
+	display: block;
+	position: relative;
+	background-color: #D83933;
+	width: 100%;
+	height: 85px;
+	padding: 0px 0px 0px 35px;
+}
+.missingchild h2 {
+	color: #FFFFFF;
+	font-size: 38px;
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-weight: 800;
+	text-align: middle;
+	margin: 22px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height: 38px;
+}
+.blockleft {
+	clear: both;
+	float: left;
+	display: block;
+	position: relative;
+	padding: 40px 40px 60px 0px;
+}
+.blockright {
+	float: left;
+	font-size: 18px;
+	font-family: "Proxima Nova", Arial, sans-serif;
+	padding: 40px 40px 40px 40px;
+	width: auto;
+	max-width: 50%;
+}
+.missingheader {
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-weight: 800;
+	font-size: 38px;
+	color: #D83933;
+	margin: -8px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+.wanted {
+	clear: both;
+	float: left;
+	display: block;
+	position: relative;
+	background-color: #F8C31D;
+	color: #000000;
+	width: 100%;
+	height: 85px;
+	padding: 0px 0px 0px 35px;
+}
+.wanted h2 {
+	color: #000000;
+	font-size: 38px;
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-weight: 800;
+	text-align: middle;
+	margin: 22px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height: 38px;
+}
+.wantedheader {
+	font-family: "Proxima Nova Extra Bold", Arial, sans-serif;
+	font-weight: 800;
+	font-size: 38px;
+	color: #000000;
+	margin: -8px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+.wantedvehicle {
+	clear: both;
+	float: left;
+	display: block;
+	position: relative;
+	background-color: #8696A3;
+	color: #FFFFFF;
+	width: 100%;
+	height: 85px;
+	padding: 0px 0px 0px 35px;
+}
+.wantedvehicle h2 {
+	color: #FFFFFF;
+	font-size: 38px;
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-weight: 800;
+	text-align: middle;
+	margin: 22px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height: 38px;
+}
+#ambercontent {
+	clear: both;
+	display: block;
+	position: relative;
+	margin: 0px 60px 0px 60px;
+}
+.blockright p {
+	font-size: 18px;
+}
+.proxbold {
+	font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+	font-weight: 800;
+}
+.icon-check, .rred {
+	color: red;
+}
+.rred {
+	color: red;
+	margin-left: 5px;
+}
+.rblack {
+	margin-left: 5px;
+}
+.icon-warning_sign {
+	font-size: 45px;
+}
+.intromap {
+	position: relative;
+	display: inline-block; /* <= shrinks container to image size */
+	transition: transform 150ms ease-in-out;
+}
+.intromap img { /* <= optional, for responsiveness */
+	display: block;
+	max-width: 210px;
+}
+.intromap svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+</style>
+</head>
+	<body>
+<div id="missingheader"> </div>
+<div id="missingchild"> </div>
+<div id="missingsuspect"> </div>
+<div id="missingvehicle"> </div>
+<script>
+    
+	var requestURL = 'https://raw.githubusercontent.com/tjcrommie/amberalert/master/amberjson.json';
+	var request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+	var amberAlt = request.response;
+
+	  populateHeader(amberAlt);
+	  populatechild(amberAlt);
+	  populatesuspect(amberAlt);
+	  populatevehicle(amberAlt);
+	  console.log(amberAlt);
+	}
+	
+	function populateHeader(jsonObj) {
+    var myH1 = '<div id="activealert"><div class="alignleft"><i class="icon-warning_sign"></i></div><div  class="alignleft"><h1>Amber Alert:' + jsonObj.amberAlert.title + '</h1></div></div>' + jsonObj.amberAlert.agencyInformation.phoneNo;
+    missingheader.innerHTML += myH1;
+	}
+	
+	function populatechild(jsonObj) {
+     var myPara1;
+	 for ( var i = 0; i < jsonObj.amberAlert.missingChildren.length; i++) {
+        myPara1 = 'Missing Child:<br><ul><li>' 
+	    + jsonObj.amberAlert.missingChildren[i].photo + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].name + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].sex + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].age + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].height + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].weight + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].hair + '</li><li>'
+		+ jsonObj.amberAlert.missingChildren[i].eyes + '</li><li>'
+	    + jsonObj.amberAlert.missingChildren[i].race + '</li></ul>' ;
+
+    missingchild.innerHTML += myPara1;
+		}
+}
+	function populatesuspect(jsonObj) {
+
+   var myPara2;
+		for ( var i = 0; i < jsonObj.amberAlert.suspects.length; i++) {
+   myPara2 = 'Missing Suspect: <br><uL><li>' 
+	    + jsonObj.amberAlert.suspects[i].photo + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].name + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].sex + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].dob + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].height + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].weight + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].hair + '</li><li>'
+		+ jsonObj.amberAlert.suspects[i].eyes + '</li><li>'
+	    + jsonObj.amberAlert.suspects[i].race + '</li></ul>'
+   ;
+  // missingsuspect.appendChild(myPara2);
+		missingsuspect.innerHTML += myPara2;
+		}
+}
+	function populatevehicle(jsonObj) {
+
+   var myPara3;
+   myPara3 = 'Missing Vehicle: <br><ul><li>' 
+	    + jsonObj.amberAlert.vehicle.photo + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.year + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.make + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.model + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.color + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.plate + '</li><li>'
+		+ jsonObj.amberAlert.vehicle.state + '</li></ul>'
+   ;
+    //missingvehicle.appendChild(myPara3);
+	missingvehicle.innerHTML += myPara3;
+}
+    </script>
+</body>
+</html>
