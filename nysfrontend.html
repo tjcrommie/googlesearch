@@ -1,0 +1,165 @@
+<!--START SEARCH TEMPLATE-->
+  <style>
+    form {
+      margin: 0 0 50px!important;
+    }
+    input.mb-query {
+      padding-left: 15px!important;
+      padding-right: 15px!important;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 40px;
+      background-image: none!important;
+      background-repeat: no-repeat;
+      background-position: 4px 50%;
+      border-radius: 0!important;
+    }
+    .searchnow {
+      color: #606060;
+      font-size: 1.5em;
+      margin-left: -30px;
+      vertical-align: bottom;
+      position: absolute;
+      right: none!important;
+      bottom: none!important;
+      margin-top: 0;
+      padding: 10px 0 0;
+    }
+    .btn-link {
+      color: #606060!important;
+    }
+    dl dd a {
+      font-size: 1.2em;
+    }
+    em {
+      background: none!important;
+      padding-left: none!important;
+      padding-right: none!important;
+      margin-left: none!important;
+      margin-right: none!important;
+      font-style: none!important;
+      font-weight: 700!important;
+    }
+    .search-field input {
+      margin-bottom: 0;
+      width: 50%!important;
+      max-width: 600px!important;
+    }
+    </style>
+    <link href="https://stg-search.its.ny.gov/apps/css/adapted.css" rel="stylesheet">
+      <div
+        data-template="view"
+        data-count="10"
+        data-constraint="url:&quot;its.ny.gov&quot;"
+      ><!--Set data constraint to site above-->
+        <div class="mb-component-container container">
+          <form class="center search-field mb-print-left"
+            role="search"
+            aria-controls="main"
+            data-template="searchform"
+            data-requires-user-input="true"
+            data-enable-search-reset="$$ENABLE_SEARCH_RESET$$">
+        
+            <script type="text/x-mustache-template" data-tag-name="label" data-class-name="mb-acc" data-attr-for="query">{{i18n.search}}</script>
+            <input data-template="suggest"        
+                 data-disabled="$$DISABLE_MAIN_SUGGEST$$"
+                 data-placeholder="search"
+                 data-shortcut="alt+1"
+                 id="query"
+                 data-aria-describedby="search-description"
+                 data-source-id-pattern="$$SUGGEST_SOURCE_ID_PATTERN$$"
+                 data-initial-source-id-pattern="$$SUGGEST_INITIAL_SOURCE_ID_PATTERN$$"
+                 data-grouped="true"
+                 class="mb-query mb-role" name="query" type="search" 
+                 autofocus
+            >
+            <script type="text/x-mustache-template" data-tag-name="span" data-role="tooltip" data-class-name="mb-bottom mb-role" data-attr-aria-hidden="true" data-id="search-description">{{i18n.search}} (Alt+1)</script>
+            <!--<button class="btn btn-link mb-no-print clearsearch" type="button" data-action-object="{&quot;resetSearch&quot;:{}}" data-i18n="[title]client_clear">
+              <i class="icon-remove-sign"></i>
+              <script type="text/x-mustache-template" data-tag-name="span" data-class-name="mb-acc">{{i18n.client_clear}}</script>
+            </button>-->
+            <button class="btn btn-link mb-no-print searchnow" type="submit" data-i18n="[title]action_search">
+              <i class="icon-search"></i>
+              <script type="text/x-mustache-template" data-tag-name="span" data-class-name="mb-acc">{{i18n.action_search}}</script>
+            </button>
+          </form>
+
+  <div data-template="results" class="searchresults">
+  <script type="text/x-mustache-template" data-attr-role="group" data-attr-aria-labelledby="result_{{id}}" data-class-name="media mb-clickable-phone" data-attr-data-action-object="{ &quot;toggleOpen&quot;: { &quot;enabledSelector&quot;: &quot;.visible-phone&quot; }}">
+  <div class="media-body">
+    <h3 class="media-heading" id="result_{{id}}">
+      {{#actions.data[0].value.href?}}<a href="{{actions.data[0].value.href}}" data-disabled-selector=".visible-phone" target="_blank">{{/actions.data[0].value.href?}}
+      {{{title}}}
+      {{#actions.data[0].value.href?}}</a>{{/actions.data[0].value.href?}}
+    </h3>
+    <dl class="mb-metadata mb-comma-separated-values mb-horizontal mb-separated hidden-phone mb-visible-open mb-small">
+      <dd><a>{{{url}}}</a></dd>
+      {{#mes:summary}}
+        <dt>{{name}}</dt>{{#data}}<dd>{{#actions?}}<span class="mb-dropdown-toggle"><a data-action-object="{&quot;openMenu&quot;: {&quot;propertyId&quot;: &quot;{{property:id}}&quot;, &quot;position&quot;: {{data:position}} }}" class="nowrap">{{/actions?}}{{{html}}}{{#actions?}} <span class="caret"></span></a></span> {{/actions?}}</span></dd>{{/data}}
+      {{/mes:summary}}
+    </dl>
+    {{#content}}
+      <p class="mb-content">{{{.}}}</p>
+    {{/content}}
+    {{#mes:nested.data?}}
+      <ul class="mb-nested">
+        {{#mes:nested}}
+          <div class="media mb-nested" data-action-object="{ &quot;toggleOpen&quot;: { &quot;enabledSelector&quot;: &quot;.visible-phone&quot; }}">
+            {{#actions.data[0].value.href?}}
+              <a href="{{actions.data[0].value.href}}" data-disabled-selector=".visible-phone" target="_blank">
+            {{/actions.data[0].value.href?}}
+              <b>{{{title}}}</b>
+            {{#actions.data[0].value.href?}}
+              </a>
+            {{/actions.data[0].value.href?}}
+            <ul class="mb-actions mb-separated hidden-phone mb-visible-submenu-open mb-no-print">
+              {{#actions.data}} <li class="nowrap"><small>{{{html}}}</small></li>{{/actions.data}}
+            </ul>
+            <dl class="mb-comma-separated-values mb-separated mb-summarized-description-list mb-small"><dd>{{{mes:date}}}</dd></dl>
+          </div>
+        {{/mes:nested}}
+      </ul>
+    {{/mes:nested.data?}}
+    <span class="clearfix"></span>
+  </div>
+</script>
+</div>
+<div data-template="pages" class="">
+  <script type="text/x-mustache-template" data-class-name="pagination">
+  {{#pages?}}
+    <ul>
+      {{#onFirstPage?}}
+        <li class="disabled"><span>&laquo;</span><li>
+      {{/onFirstPage?}}
+      {{^onFirstPage?}}
+        <li><a href="#" data-action-name="previousPage">&laquo;</a><li>
+      {{/onFirstPage?}}
+
+      {{#pages}}
+        <li class="{{#current_page?}}active{{/current_page?}}"><a href="#" data-action-name="setPage" data-page="{{page_number}}">{{page}}</a></li>
+      {{/pages}}
+
+      {{#more_avail?}}
+        <li class="disabled"><span>&hellip;</span></li>
+      {{/more_avail?}}
+
+      {{#onLastPage?}}
+        <li class="disabled"><span>&raquo;</span><li>
+      {{/onLastPage?}}
+      {{^onLastPage?}}
+        <li><a href="#" data-action-name="nextPage">&raquo;</a><li>
+      {{/onLastPage?}}
+    </ul>
+  {{/pages?}}
+  </script>
+</div></div></div>
+    <script src="https://stg-search.its.ny.gov/apps/scripts/client.js" data-global-export="false"></script>
+    <script>
+      Mindbreeze.require(["client/application"], function(Application) {
+        var application = new Application({
+          startSearch: false,
+          updateTitle: true
+        });
+      });
+    </script>
+<!--END SEARCH TEMPLATE-->
