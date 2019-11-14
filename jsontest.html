@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NYITS</title>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="ajaxNode.js"></script>
+<script> 
+	   
+function searchitem() {
+	let currentUrl = 'http://localhost/nysits/?as_sitesearch=uiappeals.ny.gov&btnG=Search&client=default_frontend&site=default_collection&q=state of&numgm=5';
+	let query = "uiappeal-decisions";
+	let facetOptions = []; // Please see below at bottom of file for working example
+	let sortOptions = {}; // Currently Dissabled in NodeJS until a sortable date field is chosen
+	let startCount = 0;
+	let resultsPerPage = 100;
+	let useKeymatchs = true;
+	let keymatchsPerPage = 3;
+
+	// The NodeJS Query Call
+	nodeSearch(query, currentUrl, startCount, resultsPerPage, useKeymatchs, keymatchsPerPage, facetOptions, sortOptions).done(function (response) {
+		processJsonResponse(response);
+	});
+};
+
+
+
+/**
+ * Process JSON response
+ * @param {*} response 
+ */
+function processJsonResponse(response) {
+	if (response !== undefined && response !== null) {
+     
+		//============== USE THE RAW JSON FOR YOUR UI HERE ==============
+		var searchresults = response;
+		var myPara2;
+		for ( var i = 0; i < searchresults.search.results.length; i++) {
+		myPara2 = '<p><strong>' + searchresults.search.results[i].title +'</strong><br>'+ searchresults.search.results[i].snippet.snippet +'</p>';
+		result.innerHTML += myPara2;
+		}
+
+		//===============================================================
+		
+		
+       
+		
+		// Google Chrome has removed support for top-frame navigation, you can see more informations
+		// here: https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/GbVcuwg_QjM
+		// var myWindow = window.open("data:text/json," + encodeURIComponent(jsonQueryResult), "_self");
+		// myWindow.focus();
+	}
+}
+
+
+
+/**
+ * Get the URL parameters
+ */
+/*function getUrlVars(currentUrl) {
+	let vars = {};
+	let parts = currentUrl.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+		vars[key] = value;
+	});
+	return vars;
+}
+*/
+
+/**
+ * Get a single URL parameter
+ * @param {*} parameter 
+ * @param {*} defaultvalue 
+ */
+	/*
+function getUrlParam(parameter, defaultvalue, currentUrl) {
+	let urlparameter = defaultvalue;
+	if (currentUrl.indexOf(parameter) > -1) {
+		urlparameter = getUrlVars(currentUrl)[parameter];
+	}
+	return urlparameter;
+}
+*/
+
+/*  Working example
+
+let facetOptions = [
+   {
+      sourceName: dataSourceId,
+      operatorName: 'category'
+   },
+   {
+      sourceName: dataSourceId,
+      operatorName: 'keywords'
+   },
+   {
+      sourceName: dataSourceId,
+      operatorName: 'domain'
+   },
+   {
+      sourceName: dataSourceId,
+      operatorName: 'filetypes'
+   }
+];
+
+// Currently dissabled until a sortable date field is chosen
+let sortOptions = {
+   "operatorName": "updateTime",
+   "sortOrder": "DESCENDING"
+}
+
+*/
+</script>
+</head>
+
+<body>
+<div onclick="searchitem()">
+  Enter name:
+
+</div>
+<div id="result"></div>
+</body>
+</html>
